@@ -1,6 +1,10 @@
 import React,{Component} from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Alert, SafeAreaView } from 'react-native';
-import { AppLoading } from 'expo';
+import { Entypo } from '@expo/vector-icons';
+import {Button} from 'native-base';
+
+
+const itemArray=new Array(9).fill('empty');
 
 const styles=StyleSheet.create({
   container:{
@@ -13,10 +17,12 @@ const styles=StyleSheet.create({
 });
 
 
-drawItem=()=>{
-
+drawItem=itemNumber=>{
+if(itemArray[itemNumber]==='empty'){
+itemArray[itemNumber]=this.state.isCross;
+this.setState({isCross:!this.state.isCross});
 }
-
+}
 
 chooseItemIcon=()=>{
 
@@ -28,7 +34,7 @@ resetGame=()=>{
 }
 
 winGame=()=>{
-  
+
 }
 
 
